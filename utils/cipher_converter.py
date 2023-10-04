@@ -14,4 +14,4 @@ class CipherConverter(ICipherConverter):
 
         substituted_block = await SboxConverter.convert_with_sblock(expanded_block_xor_key, 6, SBOX)
 
-        return substituted_block
+        return await Permutator.permutate(substituted_block, P)
