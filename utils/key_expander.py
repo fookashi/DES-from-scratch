@@ -7,7 +7,7 @@ import asyncio
 
 class KeyExpander(IKeyExpander):
 
-    async def expand_key(self, original_key: bytes) -> tuple[bytes]:
+    async def expand_key(self, original_key: bytes | bytearray) -> tuple[bytes]:
         round_keys = list()
 
         permuted_key = await Permutator.permutate(original_key, PC1)

@@ -10,8 +10,7 @@ class FeistelNetworkSolver(IEncrypter):
         self.cipher_converter = cipher_converter
         self.round_keys = None
 
-    async def generate_round_keys(self, key: bytes, key_n: int):
-        key = PkssPadder.add_padding(key, key_n)
+    async def generate_round_keys(self, key: bytes):
         self.round_keys = await self.key_expander.expand_key(key)
 
     async def encrypt(self, block: bytes):
